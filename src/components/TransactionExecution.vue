@@ -15,7 +15,7 @@
         >
           <div class="home">
             <div style="text-align: center; padding: 60px;">
-              <h1>在別的主機進行交易執行的動作</h1>
+              <h1>在別的介面進行交易執行的動作</h1>
             </div>
           </div>
         </v-col>

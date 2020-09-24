@@ -15,7 +15,7 @@
         >
           <div class="home">
             <div style="text-align: center; padding: 60px;">
-              <h1>1.於Richart數位後臺點選完成身分核驗" <br /> 2.告知客戶完成身分核驗，待開戶完成後將簡訊通知</h1>
+              <h1>1.於Richart數位後臺點選完成身分核驗 <br /> 2.告知客戶完成身分核驗，待開戶完成後將簡訊通知</h1>
             </div>
           </div>
         </v-col>

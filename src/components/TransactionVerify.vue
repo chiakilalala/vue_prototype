@@ -1,19 +1,19 @@
 <template>
-  <v-card height="611px">
+  <v-card height="620px">
     <v-container
             class="fill-height"
             fluid
     >
       <v-row no-gutters>
-        <v-col cols="12" md="12">
+        <v-col cols="12" md="12" > 
           <span style="padding: 10px;">交易覆核狀態:</span>
           <span :class="{ alert: verifyStatus < 0 }">{{verifyStatusMessage}}</span>
           <span v-if="verifyStatus < 0 && verifyNote !== ''" class="alert">({{verifyNote}})</span>
         </v-col>
       </v-row>
       <v-row no-gutters>
-        <v-col cols="12" md="12">
-          <span style="padding: 10px;">請選取提交主管覆核的交易文件, 再按下"送出主管覆核".</span>
+        <v-col cols="12" md="12" class="mb-3">
+          <span style="padding: 10px;">請<span class="font-weight-black">選取</span>提交主管覆核的交易文件, 再按下"送出主管覆核".</span>
           <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled">送出主管覆核</v-btn>
         </v-col>
       </v-row>
@@ -59,7 +59,7 @@
     },
     data () {
       return {
-        done: false,
+        done: true,
         scanImportedDocs: [
           {
             name: '掃描-1',
@@ -111,8 +111,8 @@
     },
     methods: {
       Send() {
-        this.$parent.transactionVerifyStatus = 1
-        this.$parent.deviceStatus = '等待主管交易覆核...'
+        this.$parent.transactionVerifyStatus = 0
+        this.$parent.status = 15
       },
       Cancel() {
         this.done = true

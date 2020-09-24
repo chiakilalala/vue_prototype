@@ -58,9 +58,7 @@
             <v-col cols="2" md="2" style="margin-right:-44px">
               <h2>步驟流程:</h2>
             </v-col>
-            <v-col v-if="selectedCategory=='服務類'" cols="10" md="10" class>
-       
-              
+            <v-col v-if="selectedCategory=='服務類'" cols="10" md="10" class>  
               <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>提示客戶證件掃描
               </span>
@@ -73,27 +71,12 @@
               <span v-if="this.step ==4 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">4</span>身分核驗完成
               </span>
-                 <span v-if="this.step ==5 "  style="font-size:1.4rem">
+                <span v-if="this.step ==5 "  style="font-size:1.4rem">
                 於 <span color="red">Richart數位後台 </span>點選完成 身分核驗
               </span>
-              
-              <!-- <v-icon
-                class="grey lighten-1 mr-2"
-                color="white"
-                :disabled="this.step == 1"
-                title="請點擊"
-              >mdi-menu-left</v-icon>
-              <v-icon
-                class="grey lighten-1"
-                color="white"
-                v-if="this.step <this.steps"
-                title="請點擊"
-              >mdi-menu-right</v-icon> -->
             </v-col>
             <!-- 申請類 -->
             <v-col v-if="selectedCategory=='申請類' && selectedTransaction=='約定轉入帳號' " cols="10" md="10" class>
-       
-              
               <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>證件掃描
               </span>
@@ -105,24 +88,20 @@
               </span>
 
               <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 客戶填單(確認資料)
+                <span class="stepball primary mr-1">4</span> 確認預填表單（客戶填單/預填QR Code掃描）列印後，引導親簽
               </span>
               <span v-if="this.step ==5 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">5</span> 提示客戶證件掃描
+                <span class="stepball primary mr-1">5</span> 提示掃描表單
               </span>
               <span v-if="this.step ==6 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">6</span> 進行交易執行
+                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
               </span>
               <span v-if="this.step ==7 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">7</span> 送出給主管覆核
+                <span class="stepball primary mr-1">7</span> 交易覆核
               </span>
-              
-             
             </v-col>
-
+  <!-- 申請類 變更客戶基本資料-->
               <v-col v-if="selectedCategory=='申請類' && selectedTransaction=='變更客戶基本資料' " cols="10" md="10" class>
-       
-              
               <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>證件掃描
               </span>
@@ -133,21 +112,19 @@
                 <span class="stepball primary mr-1">3</span> 送出主管覆核
               </span>
               <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 列印申請書&確認內容
-
+                <span class="stepball primary mr-1">4</span> 列印申請書&確認內容並引導親簽
               </span>
               <span v-if="this.step ==5 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">5</span> 文件掃描＆檢視文件內容
               </span>
-              <!-- <span v-if="this.step ==6 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">6</span> 進行交易執行
-              </span> -->
               <span v-if="this.step ==6 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
+              </span>
+              <span v-if="this.step ==7 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">7</span> 送出給主管覆核
               </span>
-              
-             
             </v-col>
+  <!-- 申請類 -->
             <v-col v-if="selectedCategory=='申請類' && selectedTransaction=='提款卡申請/終止非約定轉帳' " cols="10" md="10" class>
       
               <span v-if="this.step ==1 " style="font-size:1.4rem">
@@ -159,56 +136,119 @@
               <span v-if="this.step ==3 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">3</span> 送出主管覆核
               </span>
-              <span v-if="this.step ==5 "  style="font-size:1.4rem">
+              <span v-if="this.step ==4 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">4</span> 列印申請書&確認內容
 
               </span>
-              <span v-if="this.step ==6 "  style="font-size:1.4rem">
+              <span v-if="this.step ==5 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">5</span> 文件掃描＆檢視文件內容
               </span>
-              <span v-if="this.step ==7 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">6</span> 進行交易執行
-              </span>
-              <span v-if="this.step ==8 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">7</span> 送出給主管覆核
+           
+              <span v-if="this.step ==6 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">6</span> 送出給主管覆核
               </span>
               
              
             </v-col>
+        <!-- 申請類 -->
+      <v-col v-if="selectedCategory=='申請類' && selectedTransaction=='存摺取款密碼變更/刪除' " cols="10" md="10" class>
+      
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
+                <span class="stepball primary mr-1">1</span>證件掃描
+              </span>
+              <span v-if="this.step ==2 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">2</span> 拍照確認身份並開啟戶政網頁
+              </span>
+              <span v-if="this.step ==3 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">3</span> 送出主管覆核
+              </span>
+              <span v-if="this.step ==4 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">4</span> 列印申請書&確認內容
+
+              </span>
+              <span v-if="this.step ==5 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">5</span> 文件掃描＆檢視文件內容
+              </span>
+              <span v-if="this.step ==6 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">6</span> 送出給主管覆核
+              </span>
+
+            </v-col>
             <!-- 現金類 -->
             <v-col v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入' " cols="10" md="10" class>      
                <span v-if="this.step ==1 " style="font-size:1.4rem">
-                <span class="stepball primary mr-1">1</span>金融卡讀卡
+                <span class="stepball primary mr-1">1</span>金融卡讀卡(交易超過十萬元進行下面步驟，如無直接收取收據)
               </span>
               <span v-if="this.step ==2 " style="font-size:1.4rem">
-                <span class="stepball primary mr-1">2</span>證件掃描
+                <span class="stepball primary mr-1">2</span> 交易超過十萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
               </span>
               <span v-if="this.step ==3 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">3</span> 拍照確認身份
+                <span class="stepball primary mr-1">3</span> 交易超過十萬元需拍照確認身份 （本行客戶得以詢問個資方式確認身份）
               </span>
               <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 送出給主管覆核
+                <span class="stepball primary mr-1">4</span> 交易超過十萬元送出給主管覆核確認身份 
               </span>
             </v-col>
+                <!-- 現金類 台幣現金存入（金融卡ATM交易）-->
+            <v-col v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（金融卡ATM交易）' " cols="10" md="10" class>      
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
+                <span class="stepball primary mr-1">1</span>金融卡讀卡(交易超過十萬元進行下面步驟，如無直接收取收據)
+              </span>
+              <span v-if="this.step ==2 " style="font-size:1.4rem">
+                <span class="stepball primary mr-1">2</span> 交易超過十萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
+              </span>
+              <span v-if="this.step ==3 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">3</span> 交易超過十萬元需拍照確認身份 （本行客戶得以詢問個資方式確認身份）
+              </span>
+              <span v-if="this.step ==4 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">4</span> 交易超過十萬元送出給主管覆核
+              </span>
+            </v-col>
+ <!-- 現金類 台幣現金存入（Bancs無摺交易）-->
+              <v-col v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（Bancs無摺交易）' " cols="10" md="10" class>      
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
+                <span class="stepball primary mr-1">1</span>確認客戶是否已填寫表單 (若無引導客戶預填)
+              </span>
+              <span v-if="this.step ==2 " style="font-size:1.4rem">
+                <span class="stepball primary mr-1">2</span> 列印表單 (預填QR Code/客戶填單並 引導客戶確認內容  並簽蓋原留印鑑)
+ 
+              </span>
+              <span v-if="this.step ==3 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">3</span> 拍照確認身份並出示存摺
 
+              </span>
+              <span v-if="this.step ==4 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">4</span> 掃描表單（客戶填單/預填QR Code掃描/交易憑條掃描)
+              </span>
+                <span v-if="this.step ==5 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">5</span> 交易執行(請客戶輸入密碼，有取款密碼時) 引導客戶取出現鈔並點收
+                
+              </span>
+              <span v-if="this.step ==6 "  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">6</span> 交易覆核並提供收據(匯款金額 100萬含以上需進行覆驗印)
+              </span>
+              <span v-if="this.step ==7"  style="font-size:1.4rem">
+                <span class="stepball primary mr-1">7</span> 掃描交易憑條副本（如客戶要求）
+              </span>
+            </v-col>
             <!-- 現金類 -->
             <v-col v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金取款' " cols="10" md="10" class>      
-               <span v-if="this.step ==1 " style="font-size:1.4rem">
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>金融卡讀卡
               </span>
               <span v-if="this.step ==2 " style="font-size:1.4rem">
-                <span class="stepball primary mr-1">2</span>證件掃描
+                <span class="stepball primary mr-1">2</span>交易超過十萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
               </span>
               <span v-if="this.step ==3 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">3</span> 拍照確認身份
+                <span class="stepball primary mr-1">3</span> 交易超過十萬元需拍照確認身份 （本行客戶得以詢問個資方式確認身份）
               </span>
               <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 送出給主管覆核
+                <span class="stepball primary mr-1">4</span> 交易超過十萬元送出給主管覆核
               </span>
             </v-col>
               <!-- 非現金類 -->
             <v-col v-if="selectedCategory=='非現金類' && selectedTransaction=='台幣轉帳' " cols="10" md="10" class>      
-               <span v-if="this.step ==1 " style="font-size:1.4rem">
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>確定客戶預填表單
               </span>
               <span v-if="this.step ==2 " style="font-size:1.4rem">
@@ -219,7 +259,7 @@
 
               </span>
                 <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 文件掃描並檢視
+                <span class="stepball primary mr-1">4</span> 表單掃描並檢視
               </span>
               <span v-if="this.step ==5 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">5</span> 送出給主管覆核
@@ -227,7 +267,7 @@
             </v-col>
               <!-- 非現金類 -->
                 <v-col v-if="selectedCategory=='非現金類' && selectedTransaction=='台幣匯款' " cols="10" md="10" class>      
-               <span v-if="this.step ==1 " style="font-size:1.4rem">
+              <span v-if="this.step ==1 " style="font-size:1.4rem">
                 <span class="stepball primary mr-1">1</span>確定客戶預填表單
               </span>
               <span v-if="this.step ==2 " style="font-size:1.4rem">
@@ -238,7 +278,7 @@
 
               </span>
                 <span v-if="this.step ==4 "  style="font-size:1.4rem">
-                <span class="stepball primary mr-1">4</span> 文件掃描並檢視
+                <span class="stepball primary mr-1">4</span> 表單掃描並檢視
               </span>
               <span v-if="this.step ==5 "  style="font-size:1.4rem">
                 <span class="stepball primary mr-1">5</span> 送出給主管覆核
@@ -261,22 +301,25 @@
               <span :class="this.step >3 ?'alert':''">身份核驗完成</span>
               <!-- <span>客戶權益提示</span> -->
             </span>
+            <!-- 申請類 -->
             <span v-if="selectedCategory=='申請類' && selectedTransaction=='約定轉入帳號' " class="font-weight-regular subheading">
               <span :class="this.step  ?'alert':''">證件掃描</span>/
               <span :class="this.step >1 ?'alert':''"> 照相</span>/
               <span :class="this.step >2 ?'alert':''"> 主管覆核</span>/
               <span :class="this.step >3 ?'alert':''"> 客戶填單</span>/
               <span :class="this.step >4 ?'alert':''"> 申請書用印掃描</span>/
-              <span :class="this.step >5 ?'alert':''"> 交易執行</span>/
-              <span :class="this.step >6 ?'alert':''">交易覆核</span>
+              <!-- <span :class="this.step >5 ?'alert':''"> 交易執行</span>/ -->
+              <span :class="this.step >5 ?'alert':''">申請書副本列印</span>/
+              <span :class="this.step >6 ?'alert':''"> 交易覆核</span>
             </span>
             <span v-if="selectedCategory=='申請類' && selectedTransaction=='變更客戶基本資料' " class="font-weight-regular subheading">
               <span :class="this.step  ?'alert':''">身份證件掃描</span>/
               <span :class="this.step >1 ?'alert':''"> 照相</span>/
               <span :class="this.step >2 ?'alert':''"> 主管覆核</span>/
               <span :class="this.step >3 ?'alert':''"> 列印申請書</span>/
-              <span :class="this.step >4 ?'alert':''"> 申請書用印掃描</span>/            
-              <span :class="this.step >5 ?'alert':''">交易覆核</span>
+              <span :class="this.step >4 ?'alert':''"> 申請書用印掃描</span>/ 
+              <span :class="this.step >5 ?'alert':''">申請書副本列印</span>/           
+              <span :class="this.step >6 ?'alert':''">交易覆核</span>
             </span>
               <span v-if="selectedCategory=='申請類' && selectedTransaction=='提款卡申請/終止非約定轉帳' " class="font-weight-regular subheading">
               <span :class="this.step  ?'alert':''">身份證件掃描</span>/
@@ -286,12 +329,38 @@
               <span :class="this.step >4 ?'alert':''"> 申請書用印掃描</span>/            
               <span :class="this.step >5 ?'alert':''">交易覆核</span>
             </span>
+              <span v-if="selectedCategory=='申請類' && selectedTransaction=='存摺取款密碼變更/刪除' " class="font-weight-regular subheading">
+              <span :class="this.step  ?'alert':''">身份證件掃描</span>/
+              <span :class="this.step >1 ?'alert':''"> 照相</span>/
+              <span :class="this.step >2 ?'alert':''"> 主管覆核</span>/
+              <span :class="this.step >3 ?'alert':''"> 列印申請書</span>/
+              <span :class="this.step >4 ?'alert':''"> 申請書用印掃描</span>/            
+              <span :class="this.step >5 ?'alert':''">交易覆核</span>
+            </span>
+      
             <!-- 現金類 -->
-            <span v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入' " class="font-weight-regular subheading">
+            <!-- <span v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入' " class="font-weight-regular subheading">
               <span :class="this.step ?'alert':''">讀取金融卡</span>/
               <span :class="this.step >1 ?'alert':''"> 證件掃描</span>/
               <span :class="this.step >2 ?'alert':''"> 照相</span>/        
               <span :class="this.step >3 ?'alert':''">交易覆核</span>
+            </span> -->
+            <!-- 現金類 台幣現金存入（金融卡ATM交易）-->
+            <span v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（金融卡ATM交易）' " class="font-weight-regular subheading">
+              <span :class="this.step ?'alert':''">讀取金融卡</span>/
+              <span :class="this.step >1 ?'alert':''"> 證件掃描</span>/
+              <span :class="this.step >2 ?'alert':''"> 照相</span>/        
+              <span :class="this.step >3 ?'alert':''">交易覆核</span>
+            </span>
+            <!-- 現金類 台幣現金存入（Bancs無摺交易）-->
+            <span v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（Bancs無摺交易）' " class="font-weight-regular subheading">
+              <span :class="this.step ?'alert':''">客戶預填表單</span>/
+              <span :class="this.step >1 ?'alert':''"> 列印表單</span>/
+                <span :class="this.step >2 ?'alert':''"> 照相</span>/
+              <span :class="this.step >3 ?'alert':''"> 表單掃描</span>/ 
+              <span :class="this.step >4 ?'alert':''">交易執行</span> /       
+              <span :class="this.step >5 ?'alert':''">交易覆核</span>/ 
+              <span :class="this.step >6 ?'alert':''">掃描交易憑條副本</span>
             </span>
             <span v-if="selectedCategory=='現金類' && selectedTransaction=='台幣現金取款' " class="font-weight-regular subheading">
               <span :class="this.step  ?'alert':''">讀取金融卡</span>/
@@ -356,28 +425,35 @@
           @click="forward(step)"
           color="primary"
           style="margin-right: 4px;"
-          :disabled="currentUnit === null|| (step>6 && selectedCategory=='申請類' && selectedTransaction=='約定轉入帳號') || (step>3 && selectedCategory=='服務類')
+          :disabled="currentUnit === null|| (step>6 && selectedCategory=='申請類' && selectedTransaction=='約定轉入帳號') 
+          || (step>3 && selectedCategory=='服務類')
           || (step>6 && selectedCategory=='申請類' && selectedTransaction=='變更客戶基本資料') 
-          || (step>6 && selectedCategory=='申請類' && selectedTransaction=='提款卡申請/終止非約定轉帳') 
-          || (step>5 && selectedCategory=='非現金類' && selectedTransaction=='台幣轉帳')
-          || (step>5 && selectedCategory=='非現金類' && selectedTransaction=='台幣匯款')  
+          || (step>5 && selectedCategory=='申請類' && selectedTransaction=='存摺取款密碼變更/刪除') 
+          || (step>5 && selectedCategory=='申請類' && selectedTransaction=='提款卡申請/終止非約定轉帳')
+          || (step>4 && selectedCategory=='非現金類' && selectedTransaction=='台幣轉帳')
+          || (step>4 && selectedCategory=='非現金類' && selectedTransaction=='台幣匯款')  
           || (step>4 && selectedCategory=='現金類' && selectedTransaction=='台幣現金取款') 
-          || (step>4 && selectedCategory=='現金類' && selectedTransaction=='台幣現金存入') 
+          || (step>3 && selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（金融卡ATM交易）') 
+          || (step>6 && selectedCategory=='現金類' && selectedTransaction=='台幣現金存入（Bancs無摺交易）') 
           "
         >下一步</v-btn>
         <v-btn v-if="(this.selectedCategory!='服務類' && (this.selectedCategory!='申請類' && this.selectedTransaction!='約定轉入帳號')
-        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入') 
+        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入（Bancs無摺交易）')
+        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入（金融卡ATM交易）')
         && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金取款') 
         && (this.selectedCategory!='非現金類' && this.selectedTransaction!='台幣轉帳')
         && (this.selectedCategory!='非現金類' && this.selectedTransaction!='台幣匯款')  
         && (this.selectedCategory!='申請類' && this.selectedTransaction!='變更客戶基本資料')
+        && (this.selectedCategory!='申請類' && this.selectedTransaction!='存摺取款密碼變更/刪除')
         && (this.selectedCategory!='申請類' && this.selectedTransaction!='提款卡申請/終止非約定轉帳'))
         ||(this.step ==4 && this.selectedCategory=='服務類') 
-        || (this.step ==6 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳')
-        || (this.step ==6 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣匯款')
-        || (this.step ==5 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入')
+        || (this.step ==5 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳')
+        || (this.step ==5 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣匯款')
+        || (this.step ==4 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（金融卡ATM交易）')
+        || (this.step ==7 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（Bancs無摺交易）')
         || (this.step ==5 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金取款')
         || (this.step ==7 && this.selectedCategory=='申請類' && this.selectedTransaction=='約定轉入帳號')
+        || (this.step ==6 && this.selectedCategory=='申請類' && this.selectedTransaction=='存摺取款密碼變更/刪除')
         || (this.step ==6 && this.selectedCategory=='申請類' && this.selectedTransaction=='提款卡申請/終止非約定轉帳')
         || (this.step ==7 && this.selectedCategory=='申請類' && this.selectedTransaction=='變更客戶基本資料')"
           @click="CancelUnitOperation"
@@ -386,17 +462,21 @@
         >結束服務</v-btn>
         <v-btn v-if="(this.selectedCategory!='服務類' && (this.selectedCategory!='申請類' && this.selectedTransaction!='約定轉入帳號')
         && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金取款')
-        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入')
+        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入（Bancs無摺交易）')
+        && (this.selectedCategory!='現金類' && this.selectedTransaction!='台幣現金存入（金融卡ATM交易）')
         && (this.selectedCategory!='非現金類' && this.selectedTransaction!='台幣轉帳')
         && (this.selectedCategory!='非現金類' && this.selectedTransaction!='台幣匯款')
         && (this.selectedCategory!='申請類' && this.selectedTransaction!='變更客戶基本資料')
+        && (this.selectedCategory!='申請類' && this.selectedTransaction!='存摺取款密碼變更/刪除')
         && (this.selectedCategory!='申請類' && this.selectedTransaction!='提款卡申請/終止非約定轉帳'))
         ||(this.step ==4 && this.selectedCategory=='服務類') 
-        || (this.step ==5 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入')
+        || (this.step ==7 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（Bancs無摺交易）')
+        || (this.step ==4 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（金融卡ATM交易）')
         || (this.step ==5 && this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金取款')
-        || (this.step ==6 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳')
-        || (this.step ==6 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣匯款')
+        || (this.step ==5 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳')
+        || (this.step ==5 && this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣匯款')
         || (this.step ==6 && this.selectedCategory=='申請類' && this.selectedTransaction=='提款卡申請/終止非約定轉帳')
+        || (this.step ==6 && this.selectedCategory=='申請類' && this.selectedTransaction=='存摺取款密碼變更/刪除')
         || (this.step ==7 && this.selectedCategory=='申請類' && this.selectedTransaction=='變更客戶基本資料')
         || (this.step ==7 && this.selectedCategory=='申請類' && this.selectedTransaction=='約定轉入帳號')"  
         @click="FinishUnitOperation" color="primary" :disabled="currentUnit === null">繼續辦理</v-btn>
@@ -439,7 +519,7 @@ import Photograph from "../components/Photograph";
 import BackgroundOperation from "../components/BackgroundOperation";
 import Cashcard from "../components/Cashcard";
 import IdentityVerificationCompleted from "../components/IdentityVerificationCompleted";
-import CustomOrder from "../components/CustomOrder";
+// import CustomOrder from "../components/CustomOrder";
 import Confirm from "../components/Confirm";
 // import IdentityVerification from "../components/IdentityVerification";
 import TransactionExecution from "../components/TransactionExecution";
@@ -552,7 +632,7 @@ export default {
         component: IdentityVerify,
       },
       ReviewTransaction: {
-        name: "TransactionVerify",
+        name: "ReviewTransaction",
         label: "交易覆核",
         pressed: false,
         component: TransactionVerify,
@@ -603,6 +683,9 @@ export default {
       this.currentUnitComponent = SelectUnit;
       this.selectedCategory = null;
       this.selectedTransaction = null;
+      this.transactionVerifyStatus = 0;
+      this.transactionVerifyNote = "";
+      this.identityVerifyStatus = 0;
     },
     FinishUnitOperation() {
       this.status = -2;
@@ -610,6 +693,9 @@ export default {
       this.currentUnit = null;
       this.currentUnitComponent = SelectUnit;
       this.isShow = true;
+      this.transactionVerifyStatus = 0;
+      this.transactionVerifyNote = "";
+      this.identityVerifyStatus = 0;
     },
     CategoryChanged() {
       this.transactions = this.transactionItems[this.selectedCategory];
@@ -631,6 +717,7 @@ export default {
       this.ClearUnitPressedState();
       this.transactionVerifyStatus = 0;
       this.transactionVerifyNote = "";
+      this.identityVerifyStatus = 0;
       this.step =0;
     },
     TransactionFinished() {
@@ -640,6 +727,7 @@ export default {
       this.ClearUnitPressedState();
       this.transactionVerifyStatus = 0;
       this.transactionVerifyNote = "";
+      this.identityVerifyStatus = 0;
     },
     ClearUnitPressedState() {
       for (var unit in this.unitOperations) {
@@ -699,22 +787,31 @@ export default {
       }else if(this.selectedCategory=='申請類' && this.selectedTransaction=='約定轉入帳號'){
         return 7;
       }else if(this.selectedCategory=='申請類' && this.selectedTransaction=='變更客戶基本資料'){
-        return 6;
+        return 7;
       }
       else if(this.selectedCategory=='申請類' && this.selectedTransaction=='提款卡申請/終止非約定轉帳'){
-        return 7;
+        return 6;
+      }
+      else if(this.selectedCategory=='申請類' && this.selectedTransaction=='存摺取款密碼變更/刪除'){
+        return 6;
       }
       else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入'){
         return 5;
+      }
+      else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（金融卡ATM交易)'){
+        return 4;
+      }
+        else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（Bancs無摺交易）'){
+        return 7;
       }
       else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金取款'){
         return 5;
       }
       else if(this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳'){
-        return 6;
+        return 5;
       }
       else if(this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣匯款'){
-        return 6;
+        return 5;
       }
       else{
         return 4;
@@ -764,8 +861,8 @@ export default {
             this.status = 4;
             break;
           case 4:
-            this.currentUnit = CustomOrder;
-            this.currentUnitComponent = CustomOrder;
+            this.currentUnit = PrintDocument;
+            this.currentUnitComponent = PrintDocument;
             this.status = 14;
             break;
           case 5:
@@ -774,9 +871,9 @@ export default {
             this.status = 2;
             break;
           case 6:
-            this.currentUnit = TransactionExecution;
-            this.currentUnitComponent = TransactionExecution;
-            this.status = 4;
+            this.currentUnit = PrintDocument;
+            this.currentUnitComponent = PrintDocument;
+            this.status = -2;
             break;
           case 7:
             this.currentUnit = TransactionVerify;
@@ -819,8 +916,7 @@ export default {
             break;
             
         }
-      }
-        else if(this.selectedCategory=='申請類' && this.selectedTransaction=='提款卡申請/終止非約定轉帳'){
+      }else if(this.selectedCategory=='申請類' && this.selectedTransaction=='提款卡申請/終止非約定轉帳'){
           switch (this.step) {
           case 1:
             this.currentUnit = ScanIdentity;
@@ -845,16 +941,120 @@ export default {
           case 5:
             this.currentUnit = ScanDocument;
             this.currentUnitComponent = ScanDocument;
+            this.status = -2;
+            break;
+          case 6:
+            this.currentUnit = PrintDocument;
+            this.currentUnitComponent = PrintDocument;
+            this.status = -2;
+            break;
+          case 7:
+            this.currentUnit = TransactionVerify;
+            this.currentUnitComponent = TransactionVerify;
+            this.status = 6;
+            break;   
+        }
+      }  
+      else if(this.selectedCategory=='申請類' && this.selectedTransaction=='存摺取款密碼變更/刪除'){
+          switch (this.step) {
+          case 1:
+            this.currentUnit = ScanIdentity;
+            this.currentUnitComponent = ScanIdentity;
+            this.status = 2;
+            break;
+          case 2:
+            this.currentUnit = Photograph;
+            this.currentUnitComponent = Photograph;
+            this.status = 2;
+            break;
+          case 3:
+            this.currentUnit = IdentityVerify;
+            this.currentUnitComponent = IdentityVerify;
+            this.status = 4;
+            break;
+          case 4:
+            this.currentUnit = PrintDocument;
+            this.currentUnitComponent = PrintDocument;
             this.status = 5;
+            break;
+          case 5:
+            this.currentUnit = ScanDocument;
+            this.currentUnitComponent = ScanDocument;
+            this.status = -2;
+            break;
+          case 6:
+            this.currentUnit = TransactionVerify;
+            this.currentUnitComponent = TransactionVerify;
+            this.status = 6;
+            break;    
+        }
+      } 
+      else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（金融卡ATM交易）'){
+          switch (this.step) {
+          case 1:
+          this.currentUnit = ReadCard;
+          this.currentUnitComponent = ReadCard;
+          this.status = 4;
+          break;
+          case 2:
+          this.currentUnit = ScanIdentity;
+          this.currentUnitComponent = ScanIdentity;
+          this.status = 2;
+          break;
+          case 3:
+            this.currentUnit = Photograph;
+            this.currentUnitComponent = Photograph;
+            this.status = 2;
+            break;
+          case 4:
+            this.currentUnit = IdentityVerify;
+            this.currentUnitComponent = IdentityVerify;
+            this.status = 4;
+            break;
+            
+        }
+      }  else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入（Bancs無摺交易）'){
+          switch (this.step) {
+          case 1:
+          this.currentUnit = Confirm;
+          this.currentUnitComponent = Confirm;
+          this.status = 4;
+          break;
+          case 2:
+          this.currentUnit = PrintDocument;
+          this.currentUnitComponent = PrintDocument;
+          this.status = -2;
+          break;
+          case 3:
+            this.currentUnit = Photograph;
+            this.currentUnitComponent = Photograph;
+            this.status = 2;
+            break;
+          case 4:
+            this.currentUnit = ScanDocument;
+            this.currentUnitComponent = ScanDocument;
+            this.status = 2;
+            break;
+          case 5:
+            this.currentUnit = TransactionExecution;
+            this.currentUnitComponent = TransactionExecution;
+            this.status = 2;
             break;
           case 6:
             this.currentUnit = TransactionVerify;
             this.currentUnitComponent = TransactionVerify;
             this.status = 6;
             break;
+          case 7:
+            this.currentUnit = ScanDocument;
+            this.currentUnitComponent = ScanDocument;
+            this.status = 6;
+            break;
             
         }
-      } else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入'){
+      } 
+      
+      else if(this.selectedCategory=='現金類' && this.selectedTransaction=='台幣現金存入'){
           switch (this.step) {
           case 1:
           this.currentUnit = ReadCard;
@@ -883,7 +1083,8 @@ export default {
             break;
             
         }
-      }else if(this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳'){
+      }
+      else if(this.selectedCategory=='非現金類' && this.selectedTransaction=='台幣轉帳'){
           switch (this.step) {
           case 1:
           this.currentUnit = Confirm;
@@ -906,11 +1107,6 @@ export default {
           this.status = 8;
           break;
           case 5:
-            this.currentUnit = IdentityVerify;
-            this.currentUnitComponent = IdentityVerify;
-            this.status = 4;
-            break;
-          case 6:
             this.currentUnit = TransactionVerify;
             this.currentUnitComponent = TransactionVerify;
             this.status = 6;
@@ -941,11 +1137,6 @@ export default {
           this.status = 8;
           break;
           case 5:
-            this.currentUnit = IdentityVerify;
-            this.currentUnitComponent = IdentityVerify;
-            this.status = 4;
-            break;
-          case 6:
             this.currentUnit = TransactionVerify;
             this.currentUnitComponent = TransactionVerify;
             this.status = 6;

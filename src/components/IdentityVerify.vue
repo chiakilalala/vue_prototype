@@ -68,7 +68,8 @@
           '第二位',
           '第三位'
         ],
-        done: false
+        done: false,
+       
       }
     },
     computed: {
