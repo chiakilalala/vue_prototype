@@ -20,7 +20,7 @@
       </v-row>
       <v-row no-gutters>
         <v-col cols="12" md="12">
-          <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled">送出主管覆核</v-btn>
+          <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled" class="secondary">送出主管覆核</v-btn>
         </v-col>
       </v-row>
       <v-row no-gutters>
@@ -28,14 +28,14 @@
           <v-container fluid class="fill-height">
             <v-row no-gutters>
               <v-col cols="12" md="12">
-                <div style="border: 1px solid black; width: 500px; height:300px;margin-bottom: 20px;">
+                <div class="isCard">
                   證件影像
                 </div>
               </v-col>
             </v-row>
             <v-row no-gutters>
               <v-col cols="12" md="12">
-                <div style="border: 1px solid black; width: 500px; height:180px;">
+                <div class="Custom">
                   客戶照片
                 </div>
               </v-col>
@@ -43,7 +43,7 @@
           </v-container>
         </v-col>
         <v-col cols="6" md="6">
-          <div style="border: 1px solid black; width: 500px; height:520px;">
+          <div  class="identity">
             戶政司國民身分證領補換資料查詢結果截圖
           </div>
         </v-col>
@@ -111,7 +111,32 @@
   }
 </script>
 <style scoped>
-  .alert {
+  /* .alert {
     color: red;
+  } */
+  .isCard{
+    border: 1px dashed rgba(0,0,0,0.6); 
+    width: 500px; 
+    height:300px;
+    margin-bottom: 20px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Custom{
+     border: 1px dashed rgba(0,0,0,0.6); 
+    width: 500px; 
+    height:180px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .identity{
+     border: 1px dashed rgba(0,0,0,0.6); 
+    width: 500px; 
+    height:520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

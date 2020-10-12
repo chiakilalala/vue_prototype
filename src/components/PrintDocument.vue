@@ -1,10 +1,11 @@
 <template>
-  <v-card height="680px">
+
+    <v-card height="680px"> 
     <v-container fluid>
       <v-row no-gutters>
         <v-col cols="4" md="4">
           <div style="padding: 10px;">
-            <v-btn @click="StartPrint">發送取件通知</v-btn>
+            <v-btn @click="StartPrint" class="primary">發送取件通知</v-btn>
           </div>
         </v-col>
         <v-col cols="8" md="8">
@@ -17,7 +18,7 @@
         <v-col cols="6" md="6">
           <v-card style="margin-right: 10px;">
             <v-toolbar
-                    color="blue lighten-4 black--text"
+                    color="blue-grey darken-1 white--text"
                     dark
                     dense
                     flat
@@ -28,10 +29,10 @@
               <template v-slot="{ item }">
                 <v-list-item>
                   <v-list-item-action>
-                    <v-btn small @click="StartPrint">列印</v-btn>
+                    <v-btn small @click="StartPrint" class="secondary">列印</v-btn>
                   </v-list-item-action>
                   <v-list-item-content>
-                    <div style="border: 1px solid black; width:100px; height:180px;">
+                    <div style="" class="printBlock">
                       {{item.name}}
                     </div>
                   </v-list-item-content>
@@ -43,7 +44,7 @@
         <v-col cols="6" md="6">
           <v-card>
             <v-toolbar
-                    color="blue lighten-4 black--text"
+                    color="blue-grey darken-1 white--text"
                     dark
                     dense
                     flat
@@ -54,10 +55,10 @@
               <template v-slot="{ item }">
                 <v-list-item>
                   <v-list-item-action>
-                    <v-btn small @click="StartPrint">列印</v-btn>
+                    <v-btn small @click="StartPrint" class="secondary">列印</v-btn>
                   </v-list-item-action>
                   <v-list-item-content>
-                    <div style="border: 1px solid black; width:100px; height:180px;">
+                    <div class="printBlock">
                       {{item.name}}
                     </div>
                   </v-list-item-content>
@@ -99,4 +100,12 @@
   }
 </script>
 <style scoped>
+  .printBlock{
+      border: 1px dashed rgba(0,0,0,0.6); 
+      width:100px; 
+      height:180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-card height="auto">
+  <v-card class="mainContent">
 
     <v-container fluid>
       <v-row no-gutters justify="center">

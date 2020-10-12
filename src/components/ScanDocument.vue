@@ -11,6 +11,7 @@
                   v-model="dispDoc"
                   persistent
                   max-width="1000"
+                  max-height="620"
           >
             <template v-slot:activator="{ on, attrs}">
               <v-btn v-bind="attrs" v-on="on" style="margin-right: 8px;">檢視文件</v-btn>
@@ -91,4 +92,7 @@
   }
 </script>
 <style scoped>
+/* .v-card__actions{
+  padding:5px  0px !important;
+} */
 </style>

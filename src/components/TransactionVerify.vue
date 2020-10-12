@@ -1,5 +1,5 @@
 <template>
-  <v-card height="620px">
+  <v-card height="680px">
     <v-container
             class="fill-height"
             fluid
@@ -13,29 +13,29 @@
       </v-row>
       <v-row no-gutters>
         <v-col cols="12" md="12" class="mb-3">
-          <span style="padding: 10px;">請<span class="font-weight-black">選取</span>提交主管覆核的交易文件, 再按下"送出主管覆核".</span>
-          <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled">送出主管覆核</v-btn>
+          <span style="padding: 10px;">請<span class="font-weight-black alert">選取</span>提交主管覆核的交易文件, 再按下"送出主管覆核".</span>
+          <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled" class="primary">送出主管覆核</v-btn>
         </v-col>
       </v-row>
       <v-row no-gutters justify="center">
         <v-col cols="6" md="6">
           <v-card>
             <v-toolbar
-                    color="blue lighten-4 black--text"
+                    color="blue-grey darken-1 white--text"
                     dark
                     dense
                     flat
             >
               <v-toolbar-title class="text-subtitle-1">掃描匯入的文件</v-toolbar-title>
             </v-toolbar>
-            <v-virtual-scroll :items="scanImportedDocs" :item-height="200" height="500">
+            <v-virtual-scroll :items="scanImportedDocs" :item-height="200" height="500px">
               <template v-slot="{ item }">
                 <v-list-item>
                   <v-list-item-action>
                     <v-checkbox v-model="item.selected"></v-checkbox>
                   </v-list-item-action>
                   <v-list-item-content>
-                    <div style="border: 1px solid black; width:100px; height:180px;">
+                    <div style="" class="Verify">
                       {{item.name}}
                     </div>
                   </v-list-item-content>
@@ -121,7 +121,15 @@
   }
 </script>
 <style scoped>
-  .alert {
+  /* .alert {
     color: red;
+  } */
+  .Verify{
+    border: 1px dashed rgba(0,0,0,0.6); 
+    width:100px; 
+    height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

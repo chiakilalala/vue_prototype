@@ -1,9 +1,9 @@
 <template>
-  <v-card height="auto">
-
-    <v-container fluid>
+  <v-card height="670">
+<!-- fluid -->
+    <v-container  fluid>
       <v-row no-gutters justify="center">
-        <v-vol cols="10 md=10">
+        <v-vol cols="10" md="10">
           <v-chip-group mandatory active-class="primary--text">
             <v-chip
               v-for="(item, index) in items"
@@ -15,8 +15,8 @@
       </v-row>
       <v-row no-gutters>
         <v-col cols="4" md="4">
-          <div style="padding: 10px;">
-            <v-btn @click="ScanBtnClicked(1)">step1.掃描身分證正面<v-icon>mdi-credit-card-scan</v-icon></v-btn>
+          <div style="padding: 0px;">
+            <v-btn class="secondary" @click="ScanBtnClicked(1)">step1.掃描身分證正面<v-icon>mdi-credit-card-scan</v-icon></v-btn>
             <br />
             <v-container fluid>
               <v-row no-gutters>
@@ -33,52 +33,51 @@
               </v-row>
               <v-row no-gutters>
                 <v-col cols="12" md="12">
-                  <v-btn small>更新資料</v-btn>
+                  <v-btn small class="accent"><v-icon>mdi-autorenew</v-icon>更新資料</v-btn>
                 </v-col>
               </v-row>
             </v-container>
           </div>
         </v-col>
-        <v-col cols="4" md="4">
-          <div style="border: 1px solid black; width: 300px; height:200px;margin-bottom: 5px;">身分證正面</div>
+        <v-col cols="4" md="4" class="pr">
+          <div class="idCard" style="">身分證正面</div>
         </v-col>
-        <v-col cols="4" md="4">
-          <div
-            style="border: 1px solid black; width: 300px; height:200px;margin-bottom: 5px;"
+        <v-col cols="4" md="4" class="">
+          <div class="idCard "
+               
           >身分證正面(紫外線)</div>
         </v-col>
       </v-row>
       <v-row no-gutters>
-        <v-col cols="4" md="4">
+        <v-col cols="4" md="4" class="pr">
           <div style="padding: 10px;">
-            <v-btn @click="ScanBtnClicked(2)">step2.掃描身分證反面  <v-icon>mdi-credit-card-scan</v-icon></v-btn>
+            <v-btn @click="ScanBtnClicked(2)" class="secondary">step2.掃描身分證反面  <v-icon>mdi-credit-card-scan</v-icon></v-btn>
           </div>
         </v-col>
-        <v-col cols="4" md="4">
-          <div style="border: 1px solid black; width: 300px; height:200px;margin-bottom: 5px;">身分證反面</div>
+        <v-col cols="4" md="4" class="pr">
+          <div class="idCard" >身分證反面</div>
         </v-col>
         <v-col cols="4" md="4">
-          <div
-            style="border: 1px solid black; width: 300px; height:200px;margin-bottom: 5px;"
+          <div class="idCard" 
+           
           >身分證反面(紫外線)</div>
         </v-col>
       </v-row>
       <v-row no-gutters>
         <v-col cols="4" md="4">
           <div style="padding: 10px;">
-            <v-btn @click="ScanBtnClicked(3)" style="margin-right: 8px;" class="mb-5">step3.掃描第二證件正面<v-icon>mdi-credit-card-scan-outline</v-icon></v-btn>
-            <v-btn @click="ScanBtnClicked(4)" class="mb-5">step4.掃描第二證件反面<v-icon>mdi-credit-card-scan</v-icon></v-btn>
+            <v-btn @click="ScanBtnClicked(3)" style="margin-right: 8px;" class="mb-5 secondary">step3.掃描第二證件正面<v-icon>mdi-credit-card-scan-outline</v-icon></v-btn>
+            <v-btn @click="ScanBtnClicked(4)" class="mb-5 secondary">step4.掃描第二證件反面<v-icon>mdi-credit-card-scan</v-icon></v-btn>
           </div>
         </v-col>
-        <v-col cols="4" md="4">
-          <div style="border: 1px solid black; width: 300px; height:200px;">第二證件正面</div>
+        <v-col cols="4" md="4" class="pr">
+          <div style="" class="idCard mb-0">第二證件正面</div>
         </v-col>
         <v-col cols="4" md="4">
-          <div style="border: 1px solid black; width: 300px; height:200px;">第二證件反面</div>
+          <div class="idCard mb-0" style="">第二證件反面</div>
         </v-col>
       </v-row>
     </v-container>
-   
   </v-card>
 
   
@@ -126,5 +125,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+.idCard{
+border: 1px dashed rgba(0,0,0,0.6);
+width: 300px; 
+height:200px;
+margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:rgba(0,0,0,0.6);
+}
+
+
 </style>

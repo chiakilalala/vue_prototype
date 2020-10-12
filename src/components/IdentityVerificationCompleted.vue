@@ -7,6 +7,28 @@
       <v-row
               align="center"
               justify="center"
+              style="background:#1976D2"
+              class="align-self-stretch "
+            
+      >
+        <v-col
+                cols="12"
+                sm="10"
+                md="10"
+                class="white--text"
+        >
+          <div class="home">
+            <div style="text-align: center; padding: 10px;">
+              <h1>我們身份核驗完成之後，手機會寄來簡訊通知。
+              </h1>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row
+              align="center"
+              justify="center"
+              class="align-self-stretch"
       >
         <v-col
                 cols="12"
@@ -14,8 +36,10 @@
                 md="10"
         >
           <div class="home">
-            <div style="text-align: center; padding: 60px;">
-              <h1>告知客戶完成身分核驗，待開戶完成後將簡訊通知</h1>
+            <div style="text-align:center; padding: 20px;">
+              <h1>提醒客戶身分證核驗完成之後，會有簡訊通知
+                  </h1>
+
             </div>
           </div>
         </v-col>
