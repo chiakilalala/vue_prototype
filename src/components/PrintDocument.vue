@@ -51,7 +51,7 @@
             >
               <v-toolbar-title class="text-subtitle-1">掃描匯入的文件</v-toolbar-title>
             </v-toolbar>
-            <v-virtual-scroll :items="scanImportedDocs" :item-height="200" height="540">
+            <v-virtual-scroll :items="scanImportedDocs" :item-height="200" height="540" color='white'>
               <template v-slot="{ item }">
                 <v-list-item>
                   <v-list-item-action>
@@ -104,6 +104,7 @@
       border: 1px dashed rgba(0,0,0,0.6); 
       width:100px; 
       height:180px;
+      background-color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;

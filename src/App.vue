@@ -34,5 +34,7 @@ export default {
 .wrap .v-card__text {
     padding:10px;
 }
-
+.v-virtual-scroll{
+  background-color: #F9FCFF;
+}
 </style>

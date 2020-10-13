@@ -1,5 +1,5 @@
 <template>
-  <v-card height="670">
+  <v-card height="675">
 <!-- fluid -->
     <v-container  fluid>
       <v-row no-gutters justify="center">
@@ -130,6 +130,7 @@ export default {
 border: 1px dashed rgba(0,0,0,0.6);
 width: 300px; 
 height:200px;
+background-color: #fff;
 margin-bottom: 5px;
     display: flex;
     align-items: center;

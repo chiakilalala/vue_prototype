@@ -118,21 +118,24 @@
     border: 1px dashed rgba(0,0,0,0.6); 
     width: 500px; 
     height:300px;
+    background-color: #fff;
     margin-bottom: 20px;
-      display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
   .Custom{
-     border: 1px dashed rgba(0,0,0,0.6); 
+    border: 1px dashed rgba(0,0,0,0.6); 
     width: 500px; 
     height:180px;
+    background-color: #fff;
       display: flex;
     align-items: center;
     justify-content: center;
   }
   .identity{
-     border: 1px dashed rgba(0,0,0,0.6); 
+    border: 1px dashed rgba(0,0,0,0.6); 
+    background-color: #fff;
     width: 500px; 
     height:520px;
     display: flex;

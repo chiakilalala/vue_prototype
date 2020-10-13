@@ -4,13 +4,11 @@
             class="fill-height"
             fluid
     >
-     <v-row
+    <v-row
               align="center"
               justify="center"
               style="background:#1976D2"
-              class="align-self-stretch "
-            
-      >
+              class="align-self-stretch " > 
         <v-col
                 cols="12"
                 sm="10"
@@ -20,7 +18,7 @@
           <div class="home">
             <div style="text-align: center; padding: 20px;">
               <h1>請輸入取款密碼 <br> 
-              請記得取出現鈔並點收
+                請記得取出現鈔並點收
               </h1>
             </div>
           </div>
@@ -39,8 +37,6 @@
             <div style="text-align: center; padding: 20px;">
               <h1>請客戶輸入密碼(有取款密碼時)<br>
               引導客戶於設備取出現鈔並點收
-
-              
               </h1>
             </div>
           </div>

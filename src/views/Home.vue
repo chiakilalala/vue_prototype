@@ -22,7 +22,7 @@
             <v-col cols="2" md="2">
               <v-subheader>業務項目:</v-subheader>
             </v-col>
-            <v-col cols="3" md="3">
+            <v-col cols="2" md="2">
               <v-select
                 :items="transactions"
                 v-model="selectedTransaction"
@@ -35,7 +35,7 @@
               <!-- @change="TransactionChanged" -->
               <!-- :disabled="!isReady || selectedTransaction !== null" -->
             </v-col>
-            <v-col cols="3" md="3">
+            <v-col cols="4" md="4">
               <v-btn
                 @click="TransactionCanceled"
                 style="margin-left: 8px; margin-right: 8px"
@@ -44,10 +44,16 @@
               >
               <v-btn
                 @click="TransactionFinished"
-                color="primary"
+                color="primary" 
                 :disabled="!selectedTransaction || currentUnit !== null"
-                >完成辦理</v-btn
-              >
+                >完成辦理</v-btn>
+              
+              <!-- 假設全部 -->
+              <v-btn
+                @click="isBtn = !isBtn"
+                color="primary" style="display:none"
+                >全部單元</v-btn>
+             
             </v-col>
           </v-row>
         </v-card>
@@ -187,386 +193,11 @@
     </v-col>
     </v-row>
 <!-- 業務導航系統 -->
-
-  
+ 
     <!-- new 步驟流程: 目前隱藏中 -->
-    <v-row no-gutters style="display: none">
-      <v-col cols="12" md="12" v-show="!isShow" class="">
-        <v-card class="pa-1" outlined v-if="selectedTransaction !== null">
-          <v-row no-gutters>
-            <v-col cols="2" md="2" style="margin-right: -44px">
-              <v-subheader>步驟流程:</v-subheader>
-            </v-col>
-            <v-col v-if="selectedCategory == '服務類'" cols="6" md="6" class>
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>提示客戶證件掃描</span>
-              
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span> 照相
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span> Richart數位後台
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>身分核驗完成
-              </span>
-            </v-col>
-            <!-- 申請類 -->
-            <v-col
-              v-if="
-                selectedCategory == '申請類' &&
-                selectedTransaction == '約定轉入帳號'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>提示客戶證件掃描
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span>
-                拍照確認身份並開啟戶政網頁
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span> 送出主管覆核
-              </span>
-
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                確認預填表單（客戶填單/預填QR Code掃描）列印後，引導親簽
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span> 提示掃描表單
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span> 交易覆核
-              </span>
-            </v-col>
-            <!-- 申請類 變更客戶基本資料-->
-            <v-col
-              v-if="
-                selectedCategory == '申請類' &&
-                selectedTransaction == '變更客戶基本資料'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>提示客戶證件掃描
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span>
-                拍照確認身份並開啟戶政網頁
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span> 送出主管覆核
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                列印申請書&確認內容並引導親簽
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span>
-                文件掃描＆檢視文件內容
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span> 送出給主管覆核
-              </span>
-            </v-col>
-            <!-- 申請類 提款卡申請/終止非約定轉帳-->
-            <v-col
-              v-if="
-                selectedCategory == '申請類' &&
-                selectedTransaction == '提款卡申請/終止非約定轉帳'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>提示客戶證件掃描
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span>
-                拍照確認身份並開啟戶政網頁
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span> 送出主管覆核
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span> 列印申請書&確認內容
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span>
-                文件掃描＆檢視文件內容
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span> 送出給主管覆核
-              </span>
-            </v-col>
-            <!-- 申請類 存摺取款密碼變更/刪除-->
-            <v-col
-              v-if="
-                selectedCategory == '申請類' &&
-                selectedTransaction == '存摺取款密碼變更/刪除'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>提示客戶證件掃描
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span>
-                拍照確認身份並開啟戶政網頁
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span> 送出主管覆核
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span> 列印申請書&確認內容
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span>
-                文件掃描＆檢視文件內容
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 提示列印申請書副本
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span> 送出給主管覆核
-              </span>
-            </v-col>
-            <!-- 現金類 -->
-
-            <!-- 現金類 台幣現金存入（金融卡ATM交易）-->
-            <v-col
-              v-if="
-                selectedCategory == '現金類' &&
-                selectedTransaction == '台幣現金存入（金融卡ATM交易）'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span
-                >金融卡讀卡(交易超過十萬元進行下面步驟，如無直接收取收據)
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span>
-                交易超過十萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>
-                交易超過十萬元需拍照確認身份
-                （本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                交易超過十萬元送出給主管覆核
-              </span>
-            </v-col>
-            <!-- 現金類 台幣現金存入（Bancs無摺交易）-->
-            <v-col
-              v-if="
-                selectedCategory == '現金類' &&
-                selectedTransaction == '台幣現金存入（Bancs無摺交易）'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span
-                >確認客戶是否已填寫表單 (若無引導客戶預填)
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span> 列印表單 (預填QR
-                Code/客戶填單並 引導客戶確認內容 並簽蓋原留印鑑)
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>
-                拍照確認身份並出示存摺
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                掃描表單（客戶填單/預填QR Code掃描/交易憑條掃描)
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span>
-                交易執行(請客戶輸入密碼，有取款密碼時) 引導客戶存入現鈔
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span>
-                交易覆核並提供收據(匯款金額 100萬含以上需進行覆驗印)
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span>
-                掃描交易憑條副本（如客戶要求）
-              </span>
-            </v-col>
-            <!-- 現金類 台幣現金取款（金融卡ATM交易）-->
-            <v-col
-              v-if="
-                selectedCategory == '現金類' &&
-                selectedTransaction == '台幣現金取款（金融卡ATM交易）'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>金融卡讀卡
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span
-                >交易超過十萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>
-                交易超過十萬元需拍照確認身份
-                （本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                引導客戶取款提醒收據（交易超過十萬元，送出給主管覆核）
-              </span>
-            </v-col>
-            <!-- 現金類 台幣現金取款（Bancs無摺交易）-->
-            <v-col
-              v-if="
-                selectedCategory == '現金類' &&
-                selectedTransaction == '台幣現金取款（Bancs無摺交易）'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span
-                >確認客戶是否已填寫表單 (若無引導客戶預填)
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span> 列印表單 (預填QR
-                Code/客戶填單並 引導客戶確認內容 並簽蓋原留印鑑)
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>
-                拍照確認身份並出示存摺
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                掃描表單（客戶填單/預填QR Code掃描/交易憑條掃描)
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span>
-                交易執行(請客戶輸入密碼，有取款密碼時) 引導客戶取出現鈔並點收
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span>
-                交易覆核並提供收據(金額 100萬含以上需進行覆驗印)
-              </span>
-              <span v-if="this.step == 7" style="font-size: 16px">
-                <span class="stepball primary mr-1">7</span>
-                掃描交易憑條副本（如客戶要求）
-              </span>
-            </v-col>
-            <!-- 非現金類 -->
-            <v-col
-              v-if="
-                selectedCategory == '非現金類' &&
-                selectedTransaction == '台幣轉帳'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>確定客戶預填表單
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span> 列印表單 (預填QR
-                Code/客戶填單並 引導客戶確認內容 並簽蓋原留印鑑)
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>拍照確認身份
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                交易超過三萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span> 表單掃描並檢視
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 送出給主管覆核
-              </span>
-            </v-col>
-            <!-- 非現金類 -->
-            <v-col
-              v-if="
-                selectedCategory == '非現金類' &&
-                selectedTransaction == '台幣匯款'
-              "
-              cols="6"
-              md="6"
-              class
-            >
-              <span v-if="this.step == 1" style="font-size: 16px">
-                <span class="stepball primary mr-1">1</span>確定客戶預填表單
-              </span>
-              <span v-if="this.step == 2" style="font-size: 16px">
-                <span class="stepball primary mr-1">2</span> 列印表單 (預填QR
-                Code/客戶填單並 引導客戶確認內容 並簽蓋原留印鑑)
-              </span>
-              <span v-if="this.step == 3" style="font-size: 16px">
-                <span class="stepball primary mr-1">3</span>拍照確認身份
-              </span>
-              <span v-if="this.step == 4" style="font-size: 16px">
-                <span class="stepball primary mr-1">4</span>
-                交易超過三萬元提供證件掃描（本行客戶得以詢問個資方式確認身份）
-              </span>
-              <span v-if="this.step == 5" style="font-size: 16px">
-                <span class="stepball primary mr-1">5</span> 表單掃描並檢視
-              </span>
-              <span v-if="this.step == 6" style="font-size: 16px">
-                <span class="stepball primary mr-1">6</span> 送出給主管覆核
-              </span>
-            </v-col>
-            <v-col cols="3" md="3">
-              <v-subheader>
-                設備狀態:
-                <span :class="{ alert: isAlert }">{{ deviceStatus }}</span>
-              </v-subheader>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </v-row>
-    <!-- <v-row no-gutters>
-      <v-col cols="12" md="12">
-        <v-card class="pa-1" outlined>
-          <h2 class="subtitle-1">
-            設備狀態:
-            <span :class="{ alert: isAlert }">{{deviceStatus}}</span>
-          </h2>
-        </v-card>
-      </v-col>
-    </v-row> -->
-    <!-- <v-row no-gutters>
+  
+    
+    <v-row no-gutters v-if='isBtn'>
       <v-col cols="12" md="12">
         <v-toolbar dense>
           <v-btn
@@ -574,12 +205,13 @@
             :key="name"
             :color="ButtonColor(value)"
             @click="UnitOperation(value)"
-            :disabled="IsDisabled(value)"
+          
             style="margin-left: 4px"
           >{{value.label}}</v-btn>
+          <!--   :disabled="IsDisabled(value)" -->
         </v-toolbar>
       </v-col>
-    </v-row> -->
+    </v-row>
     <v-row no-gutters>
       <v-col cols="12" md="12">
         <!-- <span v-if="this.selectedTransaction=='Richart身分驗證'">  -->
@@ -837,6 +469,7 @@ export default {
     isAlert: false,
     isReady: false,
     isShow: false,
+    isBtn:false,
     step: 0,
     //steps: 4,
     status: 2,

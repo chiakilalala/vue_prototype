@@ -14,11 +14,11 @@
       <v-row no-gutters>
         <v-col cols="12" md="12" class="mb-3">
           <span style="padding: 10px;">請<span class="font-weight-black alert">選取</span>提交主管覆核的交易文件, 再按下"送出主管覆核".</span>
-          <v-btn @click="Send" style="padding: 10px;" :disabled="sendBtnDisabled" class="primary">送出主管覆核</v-btn>
+          <v-btn @click="Send" style="padding: 5px;" :disabled="sendBtnDisabled" class="primary">送出主管覆核</v-btn>
         </v-col>
       </v-row>
       <v-row no-gutters justify="center">
-        <v-col cols="6" md="6">
+        <v-col cols="6" md="6" color="white" class='pa-0'>
           <v-card>
             <v-toolbar
                     color="blue-grey darken-1 white--text"
@@ -128,6 +128,7 @@
     border: 1px dashed rgba(0,0,0,0.6); 
     width:100px; 
     height:180px;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
